@@ -39,7 +39,7 @@ public class BookSearchDAO {
 		
         // 3. Set the input and Query execute
         List<Book> books = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class), book.getTitle());
-		System.out.println(books);
+		LOGGER.info(books);
 	}
 	
 	/* Search by Author */
@@ -53,7 +53,7 @@ public class BookSearchDAO {
 				
 		        // 3. Set the input and Query execute
 		        List<Book> books = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class), book.getAuthor());
-				System.out.println(books);
+				LOGGER.info(books);
 	}
 	
 	/* Search by price range */
@@ -67,7 +67,7 @@ public class BookSearchDAO {
 				
         // 3. Set the input and Query execute
         List<Book> books = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class), minPrice, maxPrice);
-		System.out.println(books);
+		LOGGER.info(books);
 	}
 
 	/* Search by Isbn */
@@ -81,6 +81,6 @@ public class BookSearchDAO {
 				
 		        // 3. Set the input and Query execute
 		        List<Book> books = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class), book.getIsbn());
-				System.out.println(books);
+				LOGGER.info(books);
 	}
 }

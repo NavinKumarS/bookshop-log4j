@@ -39,7 +39,7 @@ public class BookSalesDAO {
 		
 		// 3. Set the input and Query execute
 		List<BookSales> books = jdbcTemplate.query(sql, new BeanPropertyRowMapper<BookSales>(BookSales.class), searchDate);
-		System.out.println(books);
+		LOGGER.info(books);
 
 	}
 	
@@ -53,7 +53,7 @@ public class BookSalesDAO {
 		
 		// 3. Set the input and Query execute
 		List<BookSales> books = jdbcTemplate.query(sql, new BeanPropertyRowMapper<BookSales>(BookSales.class), searchDate);
-		System.out.println(books);
+		LOGGER.info(books);
 	}
 }
 

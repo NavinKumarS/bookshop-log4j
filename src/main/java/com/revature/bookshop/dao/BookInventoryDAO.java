@@ -39,7 +39,7 @@ public class BookInventoryDAO {
 		// 3. Set the input and Query execute 
 		try {
 			int rows = jdbcTemplate.update(sql, bookInventory.getIsbn());
-			System.out.println("No of rows inserted: " + rows);
+			LOGGER.info("No of rows inserted: " + rows);
 			throw new Exception("OUT OF STOCK");	
 		} catch (Exception e) {
 			e.printStackTrace();

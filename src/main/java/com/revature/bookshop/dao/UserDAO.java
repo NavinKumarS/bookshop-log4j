@@ -34,9 +34,9 @@ public class UserDAO {
 		
         // 3. Set the input and Query execute
         int rows = jdbcTemplate.update(sql, user.getUserName(), user.getPassword());
-        System.out.println("No of rows inserted: " + rows);
+        LOGGER.info("No of rows inserted: " + rows);
         if(rows == 1)
-		System.out.println("Login Sucess");
+		LOGGER.info("Login Sucess");
 	}
 	
 	/* User must be able to Reset Password */
@@ -49,12 +49,12 @@ public class UserDAO {
 		
 		// 3. Set the input and Query execute
 		int rows = jdbcTemplate.update(sql, newPassword, user.getUserName(), user.getPassword());
-		System.out.println("No of rows inserted: " + rows);
+		LOGGER.info("No of rows inserted: " + rows);
 		if (rows == 1) 	
-			System.out.println("Password Reset Sucess");
+			LOGGER.info("Password Reset Sucess");
 		else if (rows == 0) 
-			System.out.println("Please Login to reset");
+			LOGGER.info("Please Login to reset");
 		else 
-			System.out.println("Error Reset");
+			LOGGER.info("Error Reset");
 	}
 }

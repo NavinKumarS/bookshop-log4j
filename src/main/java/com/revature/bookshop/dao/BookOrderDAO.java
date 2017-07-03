@@ -35,9 +35,9 @@ public class BookOrderDAO {
 		
 		// 3. Set the input and Query Execute
 		int rows = jdbcTemplate.update(orderSql, bookSales.getSalesID(), bookSales.getUserID(), bookSales.getIsbn(), bookSales.getQuantity(), bookSales.getPrice(), bookSales.getTotalAmount(), bookSales.getOrderDate(), bookSales.getStatus());
-		System.out.println("No of rows inserted: " + rows);
+		LOGGER.info("No of rows inserted: " + rows);
 		if(rows == 1)
-			System.out.println("Order Successful!!");
+			LOGGER.info("Order Successful!!");
 	}
 	
 	/* User can select the quantity of books */ 
@@ -52,7 +52,7 @@ public class BookOrderDAO {
 		
 		// 3. Set the input and Query execute
 		int rows = jdbcTemplate.update(sql, bookSales.getQuantity(), bookSales.getSalesID(), bookSales.getUserID());
-		System.out.println("No of rows inserted: " + rows);
+		LOGGER.info("No of rows inserted: " + rows);
 	}
 	
 	/* User can cancel the book order */
@@ -65,8 +65,8 @@ public class BookOrderDAO {
 			
 		// 3. Set the input and Query execute
 		int rows =jdbcTemplate.update(sql, bookSales.getSalesID(), bookSales.getUserID());
-		System.out.println("No of rows Updated: " + rows);
+		LOGGER.info("No of rows Updated: " + rows);
 		if(rows == 1)
-			System.out.println("Order Cancelled!!");
+			LOGGER.info("Order Cancelled!!");
 		}
 }

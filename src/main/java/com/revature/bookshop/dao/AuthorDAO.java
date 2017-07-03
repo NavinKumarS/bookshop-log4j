@@ -38,7 +38,7 @@ public class AuthorDAO {
 		
 		// 3. Set the input and Query execute
 		int rows = jdbcTemplate.update(sql, book.getContent(), book.getIsbn());
-		System.out.println("No. of rows Updated : " + rows);
+		LOGGER.info("No. of rows Updated : " + rows);
 	}
 
 	/* Author can view the book and contents */
@@ -53,7 +53,7 @@ public class AuthorDAO {
 		
 		// 3. Set the input and Query execute
 		List<Book> books = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class), book.getIsbn());
-		System.out.println(books);;
+		LOGGER.info(books);;
 	}
 
 	/* Author can delete the book */
@@ -68,7 +68,7 @@ public class AuthorDAO {
 		
 		// 3. Set the input and Query execute
 		int rows = jdbcTemplate.update(sql, book.getIsbn());
-		System.out.println("No. of rows Deleted : " + rows);
+		LOGGER.info("No. of rows Deleted : " + rows);
 	}
 
 	/* Author can view all his books */
@@ -83,7 +83,7 @@ public class AuthorDAO {
 		
 		// 3. Set the input and Query execute
 		List<Book> books = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class), book.getAuthor());
-		System.out.println(books);;
+		LOGGER.info(books);;
 	}
 
 }
